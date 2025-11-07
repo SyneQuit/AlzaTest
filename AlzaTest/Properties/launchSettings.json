@@ -2,15 +2,6 @@
   "$schema": "https://json.schemastore.org/launchsettings.json",
 
   "profiles": {
-    "http": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "dotnetRunMessages": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
-
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,

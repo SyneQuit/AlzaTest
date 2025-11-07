@@ -28,7 +28,6 @@ namespace AlzaTest.Workers
                 {
                     try
                     {
-                        // Create a fresh scope for each message (gets a fresh DbContext/Repo)
                         using var scope = _scopeFactory.CreateScope();
                         var repo = scope.ServiceProvider.GetRequiredService<IProductRepository>();
 
