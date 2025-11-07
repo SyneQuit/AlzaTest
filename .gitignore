@@ -1,0 +1,45 @@
+# -----------------------------
+# KEEP ONLY SOURCE CODE FILES
+# -----------------------------
+
+# Visual Studio / build stuff
+.vs/
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+Debug/
+Release/
+
+# Build results
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+*.vsidx
+*.dbmdl
+*.tmp
+*.bak
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# JetBrains Rider / VSCode
+.idea/
+.vscode/
+
+# Other IDE junk
+*.swp
+*.lock
+*.mpdb
+*.dmp
+
+# NuGet packages
+*.nupkg
+packages/

@@ -18,6 +18,7 @@ namespace Repositories
         public async Task<IEnumerable<ProductDto>> GetAll(CancellationToken cancellationToken)
         {
             return await _context.Products
+                .AsNoTracking()
                 .Select(MapToProductDto)
                 .ToListAsync(cancellationToken);
         }
@@ -38,8 +39,12 @@ namespace Repositories
             return product;
         }
 
-        public Task<bool> ExistsByName(string name, CancellationToken ct) =>
-            _context.Products.AnyAsync(p => p.Name == name, ct);
+        public Task<bool> ExistsByName(string name, CancellationToken ct)
+        {
+            return _context.Products
+                .AsNoTracking()
+                .AnyAsync(p => p.Name == name, ct);
+        }
 
         public async Task<bool> UpdateStockQuantity(int productId, int stockQuantity, CancellationToken cancellationToken)
         {
@@ -55,8 +60,13 @@ namespace Repositories
             return true;
         }
 
-        public Task<int> Count(CancellationToken ct) => 
-             _context.Products.CountAsync(ct);
+        public Task<int> Count(CancellationToken ct)
+        {
+            return _context.Products
+                .AsNoTracking()
+                .CountAsync(ct);
+        }
+
 
         public async Task<IReadOnlyList<ProductDto>> GetPage(int page, int size, CancellationToken ct)
         {

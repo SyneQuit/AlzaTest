@@ -1,4 +1,5 @@
 ﻿using AlzaTest.Controllers;
+using AlzaTest.Messaging;
 using Dtos;
 using Dtos.Contracts.Requests;
 using FluentAssertions;
@@ -15,8 +16,9 @@ namespace Products.Api.Tests.Controllers
     public class ProductControllerTests
     {
         private readonly Mock<IProductService> _service = new(MockBehavior.Strict);
+        private readonly Mock<IStockUpdateQueue> _queue = new(MockBehavior.Strict);
 
-        private ProductController Sut() => new(_service.Object);
+        private ProductController Sut() => new(_service.Object, _queue.Object);
 
         [Fact]
         public async Task GetAll_returns_200_with_products()

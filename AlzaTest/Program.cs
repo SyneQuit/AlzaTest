@@ -1,3 +1,5 @@
+using AlzaTest.Messaging;
+using AlzaTest.Workers;
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using Data.Entities;
@@ -34,6 +36,8 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddSingleton<IStockUpdateQueue, StockUpdateQueue>();
+builder.Services.AddHostedService<StockUpdateProcessor>();
 
 var app = builder.Build();
 
