@@ -1,0 +1,11 @@
+C:\Users\vit.synek\source\repos\AlzaTest\Dtos\bin\Debug\net9.0\Dtos.deps.json
+C:\Users\vit.synek\source\repos\AlzaTest\Dtos\bin\Debug\net9.0\Dtos.dll
+C:\Users\vit.synek\source\repos\AlzaTest\Dtos\bin\Debug\net9.0\Dtos.pdb
+C:\Users\vit.synek\source\repos\AlzaTest\Dtos\obj\Debug\net9.0\Dtos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vit.synek\source\repos\AlzaTest\Dtos\obj\Debug\net9.0\Dtos.AssemblyInfoInputs.cache
+C:\Users\vit.synek\source\repos\AlzaTest\Dtos\obj\Debug\net9.0\Dtos.AssemblyInfo.cs
+C:\Users\vit.synek\source\repos\AlzaTest\Dtos\obj\Debug\net9.0\Dtos.csproj.CoreCompileInputs.cache
+C:\Users\vit.synek\source\repos\AlzaTest\Dtos\obj\Debug\net9.0\Dtos.dll
+C:\Users\vit.synek\source\repos\AlzaTest\Dtos\obj\Debug\net9.0\refint\Dtos.dll
+C:\Users\vit.synek\source\repos\AlzaTest\Dtos\obj\Debug\net9.0\Dtos.pdb
+C:\Users\vit.synek\source\repos\AlzaTest\Dtos\obj\Debug\net9.0\ref\Dtos.dll

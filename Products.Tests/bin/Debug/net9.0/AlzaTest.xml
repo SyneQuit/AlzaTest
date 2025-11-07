@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AlzaTest</name>
+    </assembly>
+    <members>
+        <member name="T:AlzaTest.Controllers.ProductController">
+            <summary>
+            Exposes product-related endpoints for querying, creating, and updating products.
+            </summary>
+        </member>
+        <member name="M:AlzaTest.Controllers.ProductController.GetAll(System.Threading.CancellationToken)">
+            <summary>
+            Returns all products.
+            </summary>
+        </member>
+        <member name="M:AlzaTest.Controllers.ProductController.GetAll(Dtos.PaginationQuery,System.Threading.CancellationToken)">
+            <summary>
+            Returns products with pagination (v2).
+            </summary>
+            <remarks>Defaults: pageNumber=1, pageSize=10.</remarks>
+        </member>
+        <member name="M:AlzaTest.Controllers.ProductController.Get(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Returns a single product by ID.
+            </summary>
+        </member>
+        <member name="M:AlzaTest.Controllers.ProductController.Create(Dtos.Contracts.Requests.CreateProductRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new product.
+            </summary>
+        </member>
+        <member name="M:AlzaTest.Controllers.ProductController.UpdateStockQuantity(Dtos.Contracts.Requests.UpdateStockQuantityRequest,System.Threading.CancellationToken)">
+            <summary>
+            Updates the stock quantity of a product.
+            </summary>
+        </member>
+        <member name="T:ProductV2Controller">
+            <summary>
+            Exposes product-related endpoints for querying, creating, and updating products.
+            </summary>
+        </member>
+        <member name="M:ProductV2Controller.Get(Dtos.PaginationQuery,System.Threading.CancellationToken)">
+            <summary>
+            Returns products with pagination (v2).
+            </summary>
+            <remarks>Defaults: pageNumber=1, pageSize=10.</remarks>
+        </member>
+    </members>
+</doc>
