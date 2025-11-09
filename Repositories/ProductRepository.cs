@@ -50,7 +50,7 @@ namespace Repositories
         {
             var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == productId, cancellationToken);
 
-            if (product is null)
+            if (product is null || stockQuantity < 0) 
             {
                 return false;
             }

@@ -10,7 +10,7 @@ namespace Dtos.Contracts.Requests
         [Required, Url, StringLength(2048)]
         public required string Url { get; set; }
 
-        [Range(0, 1_000_000)]
+        [Range(0, 10_000_000_000)]
         public decimal Price { get; set; } = 0;
 
         [StringLength(2000)]

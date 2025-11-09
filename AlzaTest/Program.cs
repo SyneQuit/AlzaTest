@@ -1,8 +1,8 @@
 using AlzaTest.Messaging;
+using AlzaTest.Seed;
 using AlzaTest.Workers;
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
-using Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Repositories;
@@ -23,7 +23,7 @@ builder.Services.AddApiVersioning(options =>
 })
 .AddApiExplorer(options =>
 {
-    options.GroupNameFormat = "'v'VVV"; 
+    options.GroupNameFormat = "'v'VVV";
     options.SubstituteApiVersionInUrl = true;
 });
 
@@ -41,23 +41,6 @@ builder.Services.AddHostedService<StockUpdateProcessor>();
 
 var app = builder.Build();
 
-// Data seed
-using (var scope = app.Services.CreateScope())
-{
-    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-
-    if (!context.Products.Any())
-    {
-        context.Products.AddRange(
-            new Product { Id = 1, Name = "Laptop", Url = "laptop-url", Price = 999.99m, Description = "Powerful laptop", StockQuantity = 10 },
-            new Product { Id = 2, Name = "Mouse", Url = "mouse-url", Price = 29.99m, Description = "Wireless mouse", StockQuantity = 50 },
-            new Product { Id = 3, Name = "Keyboard", Url = "keyboard-url", Price = 59.99m, Description = "Mechanical keyboard", StockQuantity = 25 },
-            new Product { Id = 4, Name = "Webcam", Url = "webcam-url", Price = 49.99m, Description = "Webcam for streaming", StockQuantity = 5 }
-        );
-        context.SaveChanges();
-    }
-}
-
 var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
 
 app.UseSwagger();
@@ -72,6 +55,9 @@ app.UseSwaggerUI(o =>
             $"AlzaTest {d.GroupName.ToUpperInvariant()}");
     }
 });
+
+//Data seed
+await app.Services.EnsureInitialSeed();
 
 app.UseHttpsRedirection();
 app.UseAuthorization();

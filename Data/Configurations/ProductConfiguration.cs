@@ -17,13 +17,17 @@ namespace Data.Configurations
                 .IsRequired()
                 .HasMaxLength(200);
 
-            builder.Property(p => p.Url);
+            builder.Property(p => p.Url)
+                .IsRequired()
+                .HasMaxLength(2048);
 
             builder.Property(p => p.Price);
 
-            builder.Property(p => p.Description);
+            builder.Property(p => p.Description)
+                .HasMaxLength(2000);
 
-            builder.Property(p => p.StockQuantity);
+            builder.Property(p => p.StockQuantity)
+                .HasDefaultValue(0);
         }
     }
 }

@@ -61,9 +61,15 @@ namespace AlzaTest.Controllers
         /// <returns>200 OK, or 404 if not found.</returns>
         [HttpGet("{productId:int}")]
         [ProducesResponseType(typeof(ProductDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Get(int productId, CancellationToken cancellationToken)
         {
+            if (productId < 1)
+            {
+                return BadRequest("Id must be greater than 0");
+            }
+
             var product = await _productService.GetById(productId, cancellationToken);
 
             if (product is null)
@@ -73,7 +79,6 @@ namespace AlzaTest.Controllers
 
             return Ok(product);
         }
-
 
         /// <summary>Creates a new product.</summary>
         /// <param name="request">Product payload.</param>
